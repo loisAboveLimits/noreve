@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "searchwp/modal-form",
+	"version": "1.0.0",
+	"title": "SearchWP Modal Form",
+	"category": "searchwp",
+	"icon": "search",
+	"description": "Insert a modal search form",
+	"keywords": [
+		"modal",
+		"search",
+		"overlay"
+	],
+	"attributes": {
+		"engine": {
+			"type": "string",
+			"default": "default"
+		},
+		"template": {
+			"type": "string",
+			"default": "Default"
+		},
+		"text": {
+			"type": "string",
+			"default": "Search"
+		},
+		"type": {
+			"type": "string",
+			"default": "link"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "searchwp-modal-search-form",
+	"editorScript": "file:./index.js"
+}

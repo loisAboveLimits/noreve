@@ -1,0 +1,38 @@
+.ventraconnect-sl-passkeys-manage {
+	max-width: 760px;
+}
+
+.ventraconnect-sl-passkeys-status {
+	display: block;
+	margin: 0 0 12px;
+	padding: 10px 12px;
+	border-left: 4px solid #2271b1;
+	background: #f0f6fc;
+}
+
+.ventraconnect-sl-passkeys-status[hidden] {
+	display: none;
+}
+
+.ventraconnect-sl-passkeys-status.is-loading {
+	border-left-color: #dba617;
+	background: #fff8e5;
+}
+
+.ventraconnect-sl-passkeys-status.is-success {
+	border-left-color: #00a32a;
+	background: #edfaef;
+}
+
+.ventraconnect-sl-passkeys-status.is-error {
+	border-left-color: #d63638;
+	background: #fcf0f1;
+}
+
+.ventraconnect-sl-passkeys-manage .ventraconnect-sl-passkeys-add-button {
+	margin-bottom: 8px;
+}
+
+.ventraconnect-sl-passkeys-manage .ventraconnect-sl-passkeys-remove-button {
+	white-space: nowrap;
+}

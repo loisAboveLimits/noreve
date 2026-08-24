@@ -1,0 +1,10 @@
+[17-Aug-2026 04:02:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function plugin_dir_path() in /home/gerne259/public_html/wp-content/plugins/wp-mail-smtp/wp_mail_smtp.php:118
+Stack trace:
+#0 /home/gerne259/public_html/wp-content/plugins/wp-mail-smtp/wp_mail_smtp.php(178): wp_mail_smtp_check_pro_loading_allowed()
+#1 {main}
+  thrown in /home/gerne259/public_html/wp-content/plugins/wp-mail-smtp/wp_mail_smtp.php on line 118
+[17-Aug-2026 04:02:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function plugin_dir_path() in /home/gerne259/public_html/wp-content/plugins/wp-mail-smtp/wp_mail_smtp.php:118
+Stack trace:
+#0 /home/gerne259/public_html/wp-content/plugins/wp-mail-smtp/wp_mail_smtp.php(178): wp_mail_smtp_check_pro_loading_allowed()
+#1 {main}
+  thrown in /home/gerne259/public_html/wp-content/plugins/wp-mail-smtp/wp_mail_smtp.php on line 118

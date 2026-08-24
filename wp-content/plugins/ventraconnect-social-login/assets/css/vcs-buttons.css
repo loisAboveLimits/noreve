@@ -1,0 +1,894 @@
+﻿/* Force width and max-width for wide buttons in admin provider preview */
+.vcs-admin-provider-preview .vcs-btn--wide,
+.vcs-admin-provider-preview .wsc-button {
+  width: 260px !important;
+  max-width: 420px !important;
+  min-width: 200px !important;
+  flex: 1 1 260px !important;
+  box-sizing: border-box;
+}
+/* VentraConnect Social Login - Button & modal styles */
+@layer vcs-base, vcs-provider, vcs-modal;
+
+@layer vcs-base {
+  .vcs-btn{
+    --vcs-bg:#fff;
+    --vcs-bg-hover:color-mix(in srgb, var(--vcs-bg) 92%, #000 8%);
+    --vcs-fg:#111;
+    --vcs-border:#e5e7eb;
+    --vcs-icon:currentColor;
+    --vcs-width:auto;
+    --vcs-height:48px;
+    --vcs-padding-y:10px;
+    --vcs-padding-x:24px;
+    --vcs-font-size:15px;
+    --vcs-font-weight:600;
+    --vcs-gap:0.7rem;
+    --vcs-icon-size:26px;
+    --vcs-icon-radius:0px;
+    --vcs-label-display:inline-flex;
+    --vcs-label-color:var(--vcs-fg);
+    --vcs-justify:center;
+    --vcs-radius:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:var(--vcs-justify);
+    gap:var(--vcs-gap);
+    width:var(--vcs-width, auto);
+    min-height:var(--vcs-height);
+    padding:var(--vcs-padding-y) var(--vcs-padding-x);
+    background:var(--vcs-bg) !important;
+    color:var(--vcs-fg) !important;
+    border:1px solid var(--vcs-border) !important;
+    border-radius:var(--vcs-radius);
+    font-size:var(--vcs-font-size);
+    font-weight:var(--vcs-font-weight);
+    line-height:1;
+    text-decoration:none;
+    cursor:pointer;
+    box-sizing:border-box;
+    transition:background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+  }
+  .vcs-btn:focus-visible{ outline:2px solid color-mix(in srgb, var(--vcs-fg) 55%, transparent); outline-offset:2px; }
+  .vcs-btn__icon{
+    width:var(--vcs-icon-size);
+    height:var(--vcs-icon-size);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    color:var(--vcs-icon, currentColor);
+    flex:0 0 auto;
+  }
+  .vcs-btn__icon > svg,
+  .vcs-btn__icon > img{
+    position:relative;
+    z-index:1;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+  .vcs-btn__label{
+    display:var(--vcs-label-display);
+    color:var(--vcs-label-color) !important;
+    font-size:inherit;
+    line-height:1.1;
+    white-space:nowrap;
+    flex:0 1 auto;
+  }
+  .vcs-btn--wide{
+    --vcs-width:min(260%, var(--vcs-wide-max-width, 100%));
+    --vcs-height:var(--vcs-wide-height, 48px);
+    --vcs-padding-y:var(--vcs-wide-padding-y, 12px);
+    --vcs-padding-x:var(--vcs-wide-padding-x, 30px);
+    --vcs-font-size:var(--vcs-wide-font-size, 14px);
+    --vcs-icon-size:var(--vcs-wide-icon-size, 24px);
+    --vcs-justify:var(--vcs-wide-justify, center);
+    --vcs-label-display:inline-flex;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+    border-radius: 5px;
+  }
+  .vcs-btn[data-theme="dark"]{
+    --vcs-bg-hover:color-mix(in srgb, var(--vcs-bg) 82%, #ffffff 18%);
+  }
+  .vcs-btn[data-theme="minimal"]{
+    --vcs-fg:#1f1f1f;
+    --vcs-bg-hover:color-mix(in srgb, #ffffff 94%, var(--vcs-fg) 6%);
+  }
+  .vcs-btn--wide:hover{
+    background:var(--vcs-bg-hover, color-mix(in srgb, var(--vcs-bg) 92%, #000 8%)) !important;
+  }
+  .vcs-btn--wide .vcs-btn__label{
+    flex:0 1 auto;
+    justify-content:center;
+    text-align:center;
+  }
+  .vcs-btn--compact{
+    --vcs-width:var(--vcs-compact-size, 88px);
+    --vcs-height:var(--vcs-compact-size, 40px);
+    --vcs-padding-y:0;
+    --vcs-padding-x:0;
+    --vcs-gap:0;
+    --vcs-icon-size:var(--vcs-compact-icon-size, 25px);
+    --vcs-label-display:none;
+    --vcs-justify:center;
+  }
+}
+
+@layer vcs-provider {
+  /* Google */
+  .vcs-btn[data-provider="google"][data-theme="light"]{
+    --vcs-bg:#F5F5F5;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#dadce0;
+  }
+  .vcs-btn[data-provider="google"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#000;
+  }
+  .vcs-btn[data-provider="google"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#e5e7eb;
+  }
+
+  /* Facebook */
+  .vcs-btn[data-provider="facebook"][data-theme="light"]{
+    --vcs-bg:#1877F2;
+    --vcs-fg:#fff;
+    --vcs-border:#0654d1;
+  }
+  .vcs-btn[data-provider="facebook"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#092b61;
+  }
+  .vcs-btn[data-provider="facebook"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#0866ff33;
+  }
+
+  /* Twitch */
+  .vcs-btn[data-provider="twitch"][data-theme="light"]{
+    --vcs-bg:#9146FF;
+    --vcs-fg:#ffffff;
+    --vcs-border:#772ce8;
+  }
+  .vcs-btn[data-provider="twitch"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#c7afff;
+    --vcs-border:#5f32c9;
+  }
+  .vcs-btn[data-provider="twitch"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#9146FF;
+    --vcs-border:#9146FF33;
+  }
+
+  /* Reddit */
+  .vcs-btn[data-provider="reddit"][data-theme="light"]{
+    --vcs-bg:#FF4500;
+    --vcs-fg:#ffffff;
+    --vcs-border:#cc3700;
+  }
+  .vcs-btn[data-provider="reddit"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#ff9a75;
+    --vcs-border:#ff450066;
+  }
+  .vcs-btn[data-provider="reddit"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#FF4500;
+    --vcs-border:#FF450033;
+  }
+
+  /* GitHub */
+  .vcs-btn[data-provider="github"][data-theme="light"]{
+    --vcs-bg:#d8d8d8;
+    --vcs-fg:#000000;
+    --vcs-border:#1b1f23;
+  }
+  .vcs-btn[data-provider="github"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#ffffff;
+    --vcs-border:#30363d;
+  }
+  .vcs-btn[data-provider="github"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#d0d7de;
+  }
+
+  /* LinkedIn */
+  .vcs-btn[data-provider="linkedin"][data-theme="light"]{
+    --vcs-bg:#0a66c2;
+    --vcs-fg:#fff;
+    --vcs-border:#084f97;
+  }
+  .vcs-btn[data-provider="linkedin"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#052d66;
+  }
+  .vcs-btn[data-provider="linkedin"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#0a66c233;
+  }
+
+  /* Discord */
+  .vcs-btn[data-provider="discord"][data-theme="light"]{
+    --vcs-bg:#5865f2;
+    --vcs-fg:#fff;
+    --vcs-border:#4752c4;
+  }
+  .vcs-btn[data-provider="discord"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#2e357d;
+  }
+  .vcs-btn[data-provider="discord"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#5865f233;
+  }
+
+  /* Slack */
+  .vcs-btn[data-provider="slack"][data-theme="light"]{
+    --vcs-bg:#4a154b;
+    --vcs-fg:#fff;
+    --vcs-border:#3a103b;
+  }
+  .vcs-btn[data-provider="slack"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#220922;
+  }
+  .vcs-btn[data-provider="slack"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#4a154b33;
+  }
+
+  /* Microsoft */
+  .vcs-btn[data-provider="microsoft"][data-theme="light"]{
+    --vcs-bg:#f4f4f4;
+    --vcs-fg:#000000;
+    --vcs-border:#1f1f1f;
+  }
+  .vcs-btn[data-provider="microsoft"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#000;
+  }
+  .vcs-btn[data-provider="microsoft"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#d1d5db;
+  }
+
+  /* Amazon */
+  .vcs-btn[data-provider="amazon"][data-theme="light"]{
+    --vcs-bg:#FFCE12;
+    --vcs-fg:#000000;
+    --vcs-border:#1a232e;
+  }
+  .vcs-btn[data-provider="amazon"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#ff9900;
+    --vcs-border:#0e141a;
+  }
+  .vcs-btn[data-provider="amazon"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#232f3e33;
+  }
+
+  /* Yahoo */
+  .vcs-btn[data-provider="yahoo"][data-theme="light"]{
+    --vcs-bg:#610FCD;
+    --vcs-fg:#fff;
+    --vcs-border:#4b01a5;
+  }
+  .vcs-btn[data-provider="yahoo"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#320074;
+  }
+  .vcs-btn[data-provider="yahoo"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#6001d233;
+  }
+
+  /* WordPress.com */
+  .vcs-btn[data-provider="wordpress"][data-theme="light"]{
+    --vcs-bg:#0087be;
+    --vcs-fg:#fff;
+    --vcs-border:#006b98;
+  }
+  .vcs-btn[data-provider="wordpress"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#004864;
+  }
+  .vcs-btn[data-provider="wordpress"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#0087be33;
+  }
+
+  /* Spotify */
+  .vcs-btn[data-provider="spotify"][data-theme="light"]{
+    --vcs-bg:#1db954;
+    --vcs-fg:#ffffff;
+    --vcs-border:#169247;
+  }
+  .vcs-btn[data-provider="spotify"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#0c4b25;
+  }
+  .vcs-btn[data-provider="spotify"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#1db95433;
+  }
+
+  /* LINE */
+  .vcs-btn[data-provider="line"][data-theme="light"]{
+    --vcs-bg:#06C755;
+    --vcs-fg:#ffffff;
+    --vcs-border:#049945;
+  }
+  .vcs-btn[data-provider="line"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#049945;
+  }
+  .vcs-btn[data-provider="line"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#06C75533;
+  }
+
+  /* Twitter (X) */
+  .vcs-btn[data-provider="twitter"][data-theme="light"]{
+    --vcs-bg:#262C36;
+    --vcs-fg:#ffffff;
+    --vcs-border:#000;
+  }
+  .vcs-btn[data-provider="twitter"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#000;
+  }
+  .vcs-btn[data-provider="twitter"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#d1d5db;
+  }
+
+  /* TikTok */
+  .vcs-btn[data-provider="tiktok"][data-theme="light"]{
+    --vcs-bg:#ffffff;
+    --vcs-fg:#000000;
+    --vcs-border:#000;
+  }
+  .vcs-btn[data-provider="tiktok"][data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#000;
+  }
+  .vcs-btn[data-provider="tiktok"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#d1d5db;
+  }
+
+  /* Ensure provider icons stay small inside MemberPress forms (override generic img/svg rules). */
+  .mepr-form .vcs-btn .vcs-btn__icon,
+  .mepr-login-form .vcs-btn .vcs-btn__icon,
+  .mepr-checkout-form .vcs-btn .vcs-btn__icon {
+    width: var(--vcs-icon-size);
+    height: var(--vcs-icon-size);
+    max-width: var(--vcs-icon-size);
+    max-height: var(--vcs-icon-size);
+  }
+
+  .mepr-form .vcs-btn__icon > svg,
+  .mepr-login-form .vcs-btn__icon > svg,
+  .mepr-checkout-form .vcs-btn__icon > svg,
+  .mepr-form .vcs-btn__icon > img,
+  .mepr-login-form .vcs-btn__icon > img,
+  .mepr-checkout-form .vcs-btn__icon > img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: inline-block;
+  }
+
+  /* Facebook and others above ensure >=4.5:1 contrast in light/dark. */
+
+
+
+  /* Magic Link (token-based) */
+  .vcs-btn.vcs-btn--magic-link[data-theme="light"]{
+    --vcs-bg:#1C4FD8;
+    --vcs-fg:#ffffff;
+    --vcs-border:#132857;
+  }
+
+  .vcs-btn.vcs-btn--magic-link[data-theme="light"] .vcs-btn__icon svg path {
+  fill: #ffffff;
+}
+
+  .vcs-btn.vcs-btn--magic-link[data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#020617;
+  }
+  .vcs-btn.vcs-btn--magic-link[data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#e5e7eb;
+  }
+
+  /* OTP Email (token-based) */
+.vcs-btn.vcs-btn--otp[data-theme="light"]{
+  --vcs-bg:    #0f766e;   /* deep teal */
+  --vcs-fg:    #ffffff;   /* white text */
+  --vcs-border:#065f46;   /* darker teal border */
+}
+
+.vcs-btn.vcs-btn--otp[data-theme="light"] .vcs-btn__icon svg rect,
+.vcs-btn.vcs-btn--otp[data-theme="light"] .vcs-btn__icon svg path {
+  stroke: currentColor;
+}
+  .vcs-btn.vcs-btn--otp[data-theme="dark"] {
+    --vcs-bg:#262C36;
+    --vcs-fg:#fff;
+    --vcs-border:#052e28;
+  }
+  .vcs-btn.vcs-btn--otp[data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#1f1f1f;
+    --vcs-border:#065f4633;
+  }
+
+  /* Passkey */
+  .vcs-btn[data-provider="passkey"][data-theme="light"]{
+    --vcs-bg:#f8fafc;
+    --vcs-bg-hover:#eef2f7;
+    --vcs-fg:#111827;
+    --vcs-border:#d1d5db;
+  }
+  .vcs-btn[data-provider="passkey"][data-theme="dark"]{
+    --vcs-bg:#262c36;
+    --vcs-fg:#ffffff;
+    --vcs-border:#020617;
+  }
+  .vcs-btn[data-provider="passkey"][data-theme="minimal"]{
+    --vcs-bg:transparent;
+    --vcs-fg:#111827;
+    --vcs-border:#d1d5db;
+  }
+  .vcs-btn[data-provider="passkey"] .vcs-btn__icon svg,
+  .vcs-btn[data-provider="passkey"] .vcs-btn__icon svg * {
+    fill: none;
+    stroke: currentColor;
+  }
+
+  /* Magic Link – light theme (premium gradient) */
+.vcs-btn.vcs-btn--magic-link[data-theme="light"]{
+  /* text/border vars (used by your base .vcs-btn) */
+  --vcs-fg:    #ffffff;
+  --vcs-border: transparent;
+
+  /* actual background – override the flat color */
+  background: linear-gradient(135deg, #1C4FD8, #790BE8);
+  color: var(--vcs-fg);
+}
+
+/* keep icon in sync */
+.vcs-btn.vcs-btn--magic-link[data-theme="light"] .vcs-btn__icon svg path {
+  fill: currentColor;
+}
+
+/* simple hover: no shadow, just a touch brighter */
+.vcs-btn.vcs-btn--magic-link[data-theme="light"]:hover {
+  filter: brightness(1.06);
+}
+
+.vcs-btn.vcs-btn--magic-link[data-theme="light"]:active {
+  filter: brightness(0.97);
+}
+
+}
+
+@layer vcs-modal {
+  .vcs-modal-wrap{
+    position: fixed; inset: 0; z-index: 999999;
+    display: flex; align-items: center; justify-content: center;
+    background: color-mix(in srgb, #0f172a 68%, transparent);
+    backdrop-filter: blur(8px);
+    padding: clamp(18px, 5vw, 36px);
+    animation: vcs-fade-in .18s ease-out both;
+  }
+  .vcs-modal{
+    position: relative;
+    width: min(480px, 100%);
+    display:flex;
+    justify-content:center;
+    color:#111827;
+  }
+  .vcs-modal__card{
+    position:relative;
+    width:100%;
+    background:linear-gradient(180deg, #ffffff 0%, #f8fafc 60%, #eef2ff 100%);
+    border-radius:20px;
+    border:1px solid rgba(148,163,184,.25);
+    box-shadow:0 30px 70px rgba(15,23,42,.22), 0 1px 0 rgba(255,255,255,.9) inset;
+    padding:clamp(26px, 6vw, 36px) clamp(22px, 6vw, 34px) clamp(28px, 6vw, 34px) !important;
+    transform: translateY(8px);
+    animation:vcs-slide-up .22s ease-out both;
+    overflow:hidden;
+    box-sizing:border-box;
+  }
+  .vcs-modal__card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(120% 90% at 50% -25%, rgba(99,102,241,.25) 0%, rgba(59,130,246,.12) 48%, transparent 72%);
+    pointer-events:none;
+  }
+  .vcs-modal__card::after{
+    content:"";
+    position:absolute;
+    top:0; left:50%;
+    transform:translateX(-50%);
+    width:82%;
+    height:4px;
+    border-radius:999px;
+    background:linear-gradient(135deg, #6366f1 0%, #14b8a6 45%, #38bdf8 100%);
+    opacity:.9;
+  }
+  .vcs-modal__close{
+    position:absolute;
+    top:18px; right:18px;
+    width:36px; height:36px;
+    border-radius:12px;
+    border:1px solid rgba(148,163,184,.35);
+    background:rgba(255,255,255,.85);
+    color:#475569;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; line-height:1;
+    transition:background .2s ease, color .2s ease, transform .2s ease, border-color .2s ease;
+    box-shadow:0 12px 24px rgba(15,23,42,.18);
+    z-index:3;
+  }
+  .vcs-modal__close:hover{ background:#1e293b; color:#f8fafc; transform:translateY(-1px); border-color:rgba(30,41,59,.7); }
+  .vcs-modal__header{ margin-bottom:18px !important; position:relative; z-index:2; }
+  .vcs-modal__header h3{ margin:0; font-size:1.6rem; font-weight:700; color:#0f172a; letter-spacing:-0.01em; }
+  .vcs-modal__header p{ margin:8px 0 0; color:#4b5563; font-size:1rem; line-height:1.55; }
+  .vcs-modal__notice{
+    margin-bottom:20px;
+    border-radius:18px;
+    padding:0;
+    transition:opacity .2s ease;
+    position:relative;
+    z-index:2;
+  }
+  .vcs-modal__notice[hidden]{ display:none !important; }
+  .vcs-modal__body{
+    display:flex; flex-direction:column; gap:22px;
+    position:relative; z-index:2;
+  }
+  .vcs-alert{
+    position:relative;
+    border-radius:16px;
+    padding:16px 20px !important;
+    font-weight:600;
+    font-size:.95rem;
+    border:1px solid transparent;
+    box-shadow:0 18px 30px rgba(15,23,42,.12);
+    overflow:hidden;
+  }
+  .vcs-alert::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    pointer-events:none;
+    background:linear-gradient(145deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 70%);
+  }
+  .vcs-alert span{ position:relative; z-index:1; display:block; }
+  .vcs-alert--success{ background:linear-gradient(135deg, rgba(16,185,129,.12) 0%, rgba(59,130,246,.08) 100%); color:#047857; border-color:rgba(74,222,128,.35); }
+  .vcs-alert--error{ background:linear-gradient(135deg, rgba(248,113,113,.16) 0%, rgba(251,191,36,.08) 100%); color:#b91c1c; border-color:rgba(248,113,113,.45); }
+  .vcs-alert--info{ background:linear-gradient(135deg, rgba(59,130,246,.16) 0%, rgba(79,70,229,.12) 100%); color:#1d4ed8; border-color:rgba(125,211,252,.45); }
+  .vcs-modal__content{ display:flex; flex-direction:column; gap:20px; }
+  .vcs-form{ display:flex; flex-direction:column; gap:18px; }
+  .vcs-field{ display:flex; flex-direction:column; gap:6px; }
+  .vcs-field label{ font-weight:600; font-size:.95rem; color:#0f172a; }
+  .vcs-field input{
+    display:block; width:100%;
+    border-radius:14px;
+    border:1px solid rgba(148,163,184,.45);
+    background:linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(248,250,252,.92) 100%);
+    padding:12px 16px;
+    font:inherit;
+    color:#0f172a;
+    box-shadow:0 12px 22px rgba(15,23,42,.08);
+    transition:border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+  }
+  .vcs-field input:focus{
+    outline:none;
+    border-color:#6366f1;
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(99,102,241,.22), 0 16px 24px rgba(59,130,246,.15);
+  }
+  .vcs-hint{ margin:0; color:#5b6478; font-size:.82rem; line-height:1.6; }
+  .vcs-modal__body .vcs-verify[hidden]{ display:none !important; }
+  .vcs-modal__body .vcs-actions{ display:flex; justify-content:flex-end; gap:12px; flex-wrap:wrap; }
+  .vcs-modal__body .button{
+    border-radius:999px;
+    padding:11px 24px;
+    font-weight:600;
+    border:1px solid transparent;
+    background:#e2e8f0;
+    color:#111827;
+    transition:filter .2s ease, background .2s ease, transform .2s ease;
+  }
+  .vcs-modal__body .button:hover:not([disabled]){ filter:brightness(.98); transform:translateY(-1px); }
+  .vcs-modal__body .button.button-primary{
+    background:linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    color:#fff;
+    border:1px solid rgba(15,23,42,.65);
+    box-shadow:0 16px 28px rgba(15,23,42,.25);
+  }
+  .vcs-modal__body .button[disabled]{ opacity:.65; cursor:not-allowed; }
+  .vcs-countdown{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 16px !important;
+    border-radius:14px;
+    background:rgba(15,23,42,.06);
+    border:1px solid rgba(148,163,184,.35);
+    font-weight:600;
+    color:#0f172a;
+    font-size:.95rem;
+    backdrop-filter:blur(2px);
+  }
+  .vcs-countdown.is-active{
+    border-color:rgba(99,102,241,.35);
+    box-shadow:0 12px 26px rgba(59,130,246,.18);
+  }
+  .vcs-countdown[hidden]{ display:none !important; }
+  .vcs-countdown__time{
+    font-feature-settings:"tnum";
+    font-size:1.15rem;
+    letter-spacing:.06em;
+    color:#1d4ed8;
+  }
+  .vcs-countdown__label{
+    color:#475569;
+    font-weight:500;
+  }
+  .vcs-countdown[data-state="expired"] .vcs-countdown__label{
+    color:#b91c1c;
+  }
+  .vcs-countdown.is-expired .vcs-countdown__time{
+    color:#b91c1c;
+  }
+  .vcs-countdown.is-expired{
+    border-color:rgba(248,113,113,.55);
+    background:rgba(254,226,226,.65);
+    color:#b91c1c;
+  }
+  @keyframes vcs-fade-in{ from { opacity:0; } to { opacity:1; } }
+  @keyframes vcs-slide-up{ from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  body.vcs-modal-open{ overflow:hidden; }
+}
+
+/* Equal-width wide-style buttons: share available row width (applies to both frontend & admin) */
+.wsc-buttons.wsc-style-wide {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  flex-wrap: wrap; 
+  flex-direction: row;/* change to wrap if you want multi-row on narrow screens */
+}
+
+.wsc-buttons.wsc-style-wide .vcs-btn {
+  flex: 1 1 0;    /* each button takes equal share of the row */
+  min-width: 0;   /* prevent overflow when labels are long */
+  width: auto !important;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+/* keep wide-style label alignment centered while sharing width */
+.wsc-buttons.wsc-style-wide .vcs-btn--wide .vcs-btn__label {
+  justify-content: center;
+  text-align: center;
+}
+
+/* small responsive tweak: allow wrapping on narrow screens */
+@media (max-width: 480px) {
+  .wsc-buttons.wsc-style-wide {
+    flex-wrap: wrap;
+  }
+  .wsc-buttons.wsc-style-wide .vcs-btn { flex: 1 1 100%; }
+}
+
+/* Override: restrict wide-style buttons from stretching full container width
+   Uses CSS variables so you can tweak min/max/basis in one place. */
+.wsc-buttons.wsc-style-wide {
+  /* Center buttons while still allowing them to grow within their bounds */
+  justify-content: flex-start;
+}
+
+/* Admin preview: keep wide buttons centered while capping width */
+.wsc-admin .wsc-preview .vcs-btn--wide,
+.wsc-admin .wsc-preview .vcs-btn--wide.vcs-btn {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 160px !important;
+  max-width: 300px !important;
+  width: auto !important;
+  flex: 0 1 auto !important;
+  box-sizing: border-box !important;
+}
+.wsc-admin .wsc-preview .vcs-btn--wide .vcs-btn__icon {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  flex: 0 0 auto !important;
+}
+.wsc-admin .wsc-preview .vcs-btn--wide .vcs-btn__label {
+  margin-left: 0 !important;
+  flex: 0 1 auto !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.wsc-buttons.wsc-style-wide .vcs-btn {
+  /* prefer a reasonable basis but allow growth up to max; prevents full-width expansion */
+  flex: 1 1 var(--vcs-wide-basis, 260px) !important;
+  min-width: var(--vcs-wide-min, 160px) !important;
+  max-width: var(--vcs-wide-max, 420px) !important;
+}
+@media (max-width: 640px) {
+  .wsc-buttons.wsc-style-wide { justify-content: stretch; }
+  .wsc-buttons.wsc-style-wide .vcs-btn { flex: 1 1 100% !important; min-width: 0 !important; max-width: none !important; }
+}
+
+/* Fix admin preview (.wsc-button) which uses different class names and may set width:100%.
+   Apply same equalization / min/max rules to .wsc-button in wide-style rows. */
+.wsc-buttons.wsc-style-wide .wsc-button {
+  flex: 1 1 var(--vcs-wide-basis, 260px) !important;
+  min-width: var(--vcs-wide-min, 160px) !important;
+  max-width: var(--vcs-wide-max, 420px) !important;
+  width: auto !important;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  --vcs-bg-hover:color-mix(in srgb, var(--vcs-bg, #f3f4f6) 92%, #000 8%);
+}
+@media (max-width: 640px) {
+  .wsc-buttons.wsc-style-wide .wsc-button { flex: 1 1 100% !important; min-width: 0 !important; max-width: none !important; }
+}
+
+/* Strong override: prevent plugin's --vcs-width from using `min(260%, ...)` which causes full-width buttons in preview.
+   Force a sensible pixel basis and max for wide buttons inside preview rows. */
+
+/* Admin preview: allow wide button to grow with text, but not shrink below min or exceed max */
+
+
+.wsc-buttons.wsc-style-wide .vcs-btn--wide,
+.wsc-buttons.wsc-style-wide .wsc-button {
+  min-width: 250px !important;
+  max-width: 300px !important;
+  width: auto !important;
+  flex: 1 1 auto !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.wsc-buttons.wsc-style-wide .vcs-btn--wide:hover,
+.wsc-buttons.wsc-style-wide .wsc-button:hover,
+.wsc-admin .wsc-preview .vcs-btn--wide:hover {
+  background:var(--vcs-bg-hover, color-mix(in srgb, var(--vcs-bg, #f3f4f6) 90%, #000000 10%)) !important;
+}
+
+/* Ensure label text stays centered along with icon */
+.wsc-buttons.wsc-style-wide .vcs-btn--wide .vcs-btn__label,
+.wsc-buttons.wsc-style-wide .wsc-button .vcs-btn__label {
+  text-align: center;
+  flex: 0 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-underline-position: none;
+}
+
+.wsc-buttons .vcs-compact-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+.wsc-buttons .vcs-compact-divider::before,
+.wsc-buttons .vcs-compact-divider::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: #d1d5db;
+}
+.wsc-buttons .vcs-compact-divider span {
+  display: inline-block;
+}
+.wsc-style-compact .vcs-btn--wide {
+  --vcs-width: 100%;
+  --vcs-wide-max-width: 100%;
+  --vcs-wide-min: 0;
+  width: 100% !important;
+  justify-content: center;
+}
+.vcs-debug-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  background: rgba(59,130,246,0.12);
+  color: #2563eb;
+  border: 1px solid rgba(59,130,246,0.35);
+  border-radius: 999px;
+}
+
+/* Center the whole button stack inside MemberPress forms */
+.mepr-login-form .vcs-sl-buttons,
+.mepr-form .vcs-sl-buttons {
+    text-align: center;
+}
+
+/* Keep buttons nicely stacked and not full-width if theme forces it */
+.mepr-login-form .vcs-sl-buttons .vcs-sl-button,
+  .mepr-form .vcs-sl-buttons .vcs-sl-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0.25rem 0;
+  }
+
+/* Center social buttons only on MemberPress login + checkout 
+.vcs-sl-mp-login-container .wsc-buttons.wsc-style-wide,
+.vcs-sl-mp-checkout-container .wsc-buttons.wsc-style-wide {
+    justify-content: center !important;
+}
+*/
