@@ -4,51 +4,61 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Noreve
+ * @package Gernetic
  */
+
+    $lang = pll_current_language();
+    get_header();
+
+    $postId = get_the_ID();
+
+    $iconsLang = "en";
+    if($lang == "ar"){$iconsLang = "ar";}
+    if($lang == "fr"){$iconsLang = "en";}
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+  <section class="" data-scroll-section>
+  	<div class="spacer-80"></div>
 
-	<?php noreve_post_thumbnail(); ?>
+  		<div class="container">
 
-	<div class="entry-content">
-		<?php
-		the_content();
+             <?php
+                if ( function_exists( 'woocommerce_breadcrumb' ) ) {
+                    woocommerce_breadcrumb();
+                }
+             ?>
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'noreve' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
+            <div class="section-header">
+               <?php if (is_cart() || is_checkout()){ ?>
 
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'noreve' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+                   <h1 class="section-title fnt-gold">  
+                      <?php the_title();?>
+                   </h1>
+
+               <?php }else{ ?>
+
+                   <h1 class="section-title fnt-gold preAnimate" data-scroll data-scroll-repeat data-scroll-delay="30" data-scroll-class="animateThis">  
+                      <?php the_title();?>
+                   </h1>
+
+               <?php } ?>
+
+
+            </div>         
+
+  		    <div class="spacer-40"></div>
+
+             <div class="section-body">
+
+                <?php the_content();?>
+
+            </div>
+
+  		</div>
+
+     <div class="spacer-80"></div>
+  </section>
+
+
+ <?php get_footer(); ?>

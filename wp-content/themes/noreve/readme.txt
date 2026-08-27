@@ -14,7 +14,7 @@ A starter theme called Noreve.
 
 == Description ==
 
-Description
+Custom Theme for Noreve
 
 == Installation ==
 

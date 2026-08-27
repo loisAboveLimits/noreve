@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Janna-LT-Regular";
+  src: url('Janna-LT-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Janna-LT-Bold";
+  src: url('Janna-LT-Bold.ttf');
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url('poppins.regular.ttf');
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url('poppins.bold.ttf');
+}
+
+@font-face {
+  font-family: "Poppins-Light";
+  src: url('poppins.light.ttf');
+}
+
+@font-face {
+  font-family: "Poppins-Thin";
+  src: url('poppins.extralight.ttf');
+}
+
+
+@font-face {
+  font-family: "IBMPlexSansArabic-Regular";
+  src: url('IBMPlexSansArabic-Regular.ttf');
+}
+
+@font-face {
+  font-family: "IBMPlexSansArabic-Bold";
+  src: url('IBMPlexSansArabic-Bold.ttf');
+}
+
+@font-face {
+  font-family: "IBMPlexSansArabic-SemiBold";
+  src: url('IBMPlexSansArabic-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: "IBMPlexSansArabic-Light";
+  src: url('IBMPlexSansArabic-Light.ttf');
+}
+
+@font-face {
+  font-family: "IBMPlexSansArabic-Thin";
+  src: url('IBMPlexSansArabic-Thin.ttf');
+}
+
+
+

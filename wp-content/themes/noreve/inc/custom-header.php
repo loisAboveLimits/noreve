@@ -8,39 +8,39 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Noreve
+ * @package Gernetic
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses noreve_header_style()
+ * @uses gerenetic_header_style()
  */
-function noreve_custom_header_setup() {
+function gerenetic_custom_header_setup() {
 	add_theme_support(
 		'custom-header',
 		apply_filters(
-			'noreve_custom_header_args',
+			'gerenetic_custom_header_args',
 			array(
 				'default-image'      => '',
 				'default-text-color' => '000000',
 				'width'              => 1000,
 				'height'             => 250,
 				'flex-height'        => true,
-				'wp-head-callback'   => 'noreve_header_style',
+				'wp-head-callback'   => 'gerenetic_header_style',
 			)
 		)
 	);
 }
-add_action( 'after_setup_theme', 'noreve_custom_header_setup' );
+add_action( 'after_setup_theme', 'gerenetic_custom_header_setup' );
 
-if ( ! function_exists( 'noreve_header_style' ) ) :
+if ( ! function_exists( 'gerenetic_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see noreve_custom_header_setup().
+	 * @see gerenetic_custom_header_setup().
 	 */
-	function noreve_header_style() {
+	function gerenetic_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*
